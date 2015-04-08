@@ -6,3 +6,6 @@ android:
 
 notifications:
   slack: snackpackgames:w4sj03P0QwSiGYWye0Sm0J6t
+
+  before_install:
+   - chmod +x gradlew
