@@ -1,4 +1,11 @@
 language: android
+cache: false
+sudo: false
+env:
+    global:
+        # Solution to tests failing with ShellCommandUnresponsiveException from here:
+        # http://stackoverflow.com/questions/28949722/android-tests-fail-on-travis-with-shellcommandunresponsiveexception/28949723#28949723
+        - ADB_INSTALL_TIMEOUT=10 # minutes (2 minutes by default)
 android:
     components:
         - platform-tools
@@ -14,9 +21,11 @@ notifications:
 before_install:
 #   Give gradlew execute permissions
     - chmod +x gradlew
-#   Create and Start Android emulator and wait until it's ready.
+#   Install android emulator
     - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+
+before_script:
+#   Start and wait for emulator
     - emulator -avd test -no-skin -no-audio -no-window &
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
-
