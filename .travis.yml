@@ -6,6 +6,7 @@ android:
         - build-tools-22.0.1
         - android-22
         - extra
+        - sys-img-armeabi-v7a-android-22
 
 notifications:
     slack: snackpackgames:w4sj03P0QwSiGYWye0Sm0J6t
