@@ -1,8 +1,11 @@
 language: android
 android:
     components:
+        - platform-tools
+        - tools
         - build-tools-22.0.1
         - android-22
+        - extra
 
 notifications:
     slack: snackpackgames:w4sj03P0QwSiGYWye0Sm0J6t
